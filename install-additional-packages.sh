@@ -48,6 +48,7 @@ mkdir -p ~/docs/
 mkdir -p ~/music/
 mkdir -p ~/pics/
 mkdir -p ~/pics/screenshots/
+mkdir -p ~/pics/wallpaper/
 mkdir -p ~/videos/
 
 cp -R wallpaper/my_wallpaper.jpg ~/pics/wallpaper/
