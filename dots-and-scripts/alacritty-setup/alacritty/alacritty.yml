@@ -1,0 +1,55 @@
+import:
+ - ~/.config/alacritty/themes/afterglow.yaml
+
+window:
+  opacity: 0.8
+  decorations: "None"
+
+font:
+  normal:
+    family: NotoSansM Nerd Font
+    style: Regular
+  
+  bold:
+    family: NotoSansM Nerd Font
+    style: Bold
+  
+  italic:
+    family: NotoSansM Nerd Font
+    style: Italic
+  
+  bold_italic:
+    family: NotoSansM Nerd Font
+    style: Bold Italic
+
+  size: 11
+
+# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+
+key_bindings:
+  - { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
+  - { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
+  - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
+  - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
+  - { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
+  - { key: G,                           mode: Vi|~Search, action: ScrollToTop             }
+  - { key: G,       mods: Shift,        mode: Vi|~Search, action: ScrollToBottom          }
+  - { key: B,       mods: Control,      mode: Vi|~Search, action: ScrollPageUp            }
+  - { key: F,       mods: Control,      mode: Vi|~Search, action: ScrollPageDown          }
+  - { key: U,       mods: Control,      mode: Vi|~Search, action: ScrollHalfPageUp        }
+  - { key: D,       mods: Control,      mode: Vi|~Search, action: ScrollHalfPageDown      }
+  - { key: Y,                           mode: Vi|~Search, action: Copy                    }
+  - { key: Y,                           mode: Vi|~Search, action: ClearSelection          }
+  - { key: V,                           mode: Vi|~Search, action: ToggleNormalSelection   }
+  - { key: Z,                           mode: Vi|~Search, action: CenterAroundViCursor    }
+  - { key: K,                           mode: Vi|~Search, action: Up                      }
+  - { key: J,                           mode: Vi|~Search, action: Down                    }
+  - { key: H,                           mode: Vi|~Search, action: Left                    }
+  - { key: L,                           mode: Vi|~Search, action: Right                   }
+  - { key: B,                           mode: Vi|~Search, action: SemanticLeft            }
+  - { key: W,                           mode: Vi|~Search, action: SemanticRight           }
+  - { key: E,                           mode: Vi|~Search, action: SemanticRightEnd        }
+  - { key: Slash,                       mode: Vi|~Search, action: SearchForward           }
+  - { key: N,                           mode: Vi|~Search, action: SearchNext              }
+  - { key: N,      mods: Shift,         mode: Vi|~Search, action: SearchPrevious          }
+  - { key: Return,   mods: Shift,   chars: "\x1b[13;2u" }
