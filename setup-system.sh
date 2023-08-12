@@ -86,9 +86,6 @@ sudo rm ~/.bash_profile
 cp dots/bash/.bashrc ~/
 cp dots/bash/.bash_profile ~/
 
-# firefox
-sudo apt install -y firefox-esr
-
 # fuzzel
 sudo apt install -y fuzzel
 sudo rm -rf ~/.config/fuzzel
