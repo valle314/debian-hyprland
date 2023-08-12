@@ -1,0 +1,45 @@
+* install NotoSans Nerd font and run: install-nerd-font.sh YOUR_NERD_FONT.zip
+
+* copy your private docs (includes passwords database) over
+* html_preview in /dev/repos/wry/examples/ (compile and add it to /.local/bin)
+    - put html_preview.rs into /dev/repos/wry/examples/ then compile
+* copy your private dev over
+* copy your private music/pics/videos if you want
+
+* install rust 
+    -https://rustup.rs/, just do: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+* make hyprprop work? or find an alternative
+
+* neovim:
+    - nvim packer.lua, ignore errors, then once or twice :so then :PackerSync and then :MasonUpdate then :checkhealth
+    - you can then install some lsp-servers from mason: 
+        * css-lsp
+        * cssmodules-language-server
+        * html-lsp
+        * ltex-ls
+        * pyright
+        * rust-analyzer
+        * texlab
+        * vue-language-server
+
+* install miniconda and add ~/.local/lib/miniconda3/bin to bash_profile
+
+* some programs you want to install:
+    - sc-im
+    - libre office
+    - darktable
+    - krita
+    - spotify
+    - lunacy
+    - gimp
+    - upscayl?
+    - inkscape
+    - calc
+    - github-cli
+    - keepassxc
+    - telegram
+
+* TODO!!! SETUP VM FOR WINDOWS10
+* TODO de_to_en (see docs) translate shell??
+* TODO tesseract oder so hier zum laufen bringen..

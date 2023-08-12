@@ -1,0 +1,15 @@
+# http://www.lightandmatter.com/when/when.html
+calendar = /home/valentin/.when/main.cal
+editor = nvim
+
+monday_first = 1
+ampm = 0
+
+calendar_today_style = "fgcyan,bold"
+items_today_style = "fgcyan,bold"
+
+neighboring_months = 0
+past = 0
+future = 14
+
+prefilter = m4 -P

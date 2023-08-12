@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{amsthm}
+\usepackage{ngerman}
+\usepackage{enumitem}   
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{theoremref}
+\usepackage{mathrsfs}
+\usepackage{faktor}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor = black
+}
+
+
+\usepackage{graphicx}
+% \graphicspath{ {./images/} }
+
+\usepackage{geometry}
+\geometry{textwidth = 14cm}
+
+\numberwithin{equation}{section}
+\newtheorem{theorem}[equation]{Theorem}
+
+\newtheorem{kor}[equation]{Korollar}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{satz}[equation]{Satz}
+\newtheorem{ds}[equation]{Definition und Satz}
+\newtheorem{prop}[equation]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{defi}[equation]{Definition}
+\newtheorem{bem}[equation]{Bemerkung}
+\newtheorem*{notation}{Notation}
+\newtheorem*{bew}{Beweis}
+\newtheorem*{bsp}{Beispiel}
+
+\makeatletter
+\newcommand{\bigp@rp}[2]{%
+  \vcenter{
+    \m@th\hbox{\scalebox{\ifx#1\displaystyle2.1\else1.5\fi}{$#1\perp$}}
+  }%
+}
+\newcommand{\bigperp}{%
+  \mathop{\mathpalette\bigp@rp\relax}%
+  \displaylimits
+}
+
+\newcommand{\stacka}[1]{\stackrel{\mathmakebox[\widthof{=}]{\mathrm{#1}}}{=}}
+\newcommand{\stackb}[2]{\stackrel{\mathmakebox[\widthof{=}]{\mathrm{#2}}}{#1}}
+\makeatother
+
+
+\begin{document}
+
+
+%Literatur
+\bibliographystyle{unsrt}
+
+
+%Inhaltsverzeichnis
+\tableofcontents
+\newpage
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+\section{First section}
+First section
+\subsection{sub}
+Subsection
+
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\end{document}

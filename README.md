@@ -1,2 +1,6 @@
 # debian-hyprland
-debian hyprland install script
+* make-backports
+* prepare nvidia
+* install hyprland deps
+* install hyprland
+* setup system
