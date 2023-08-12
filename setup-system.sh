@@ -4,6 +4,9 @@
 mkdir -p ~/.local/bin
 cp -r scripts ~/.local/
 
+sudo apt install -y imagemagick
+scripts/change-default-hyprland-backgrounds.sh
+
 sudo rm -rf ~/.config/user-dirs.dirs
 sudo rm -rf ~/.config/user-dirs.locale
 touch ~/.config/user-dirs.dirs
@@ -68,6 +71,7 @@ cd ..
 sudo rm -rf ./neovim
 
 ## packer for neovim
+mkdir -p ~/.local/share/nvim/pack/packer/start/
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/pack/packer/start/packer.nvim
 
 ## dots for neovim  
@@ -136,19 +140,17 @@ sudo rm -rf ~/.config/swayimg
 cp -r dots/swayimg ~/.config/
 
 #waybar
-# TODO du brauchst doch nicht alle oder???
-#sudo apt install -y clang-tidy gobject-introspection libdbusmenu-gtk3-dev libevdev-dev libfmt-dev libgirepository1.0-dev libgtk-3-dev libgtkmm-3.0-dev libinput-dev libjsoncpp-dev libmpdclient-dev libnl-3-dev libnl-genl-3-dev libpulse-dev libsigc++-2.0-dev libspdlog-dev libwayland-dev scdoc upower libxkbregistry-dev 
-
+sudo apt install -y clang-tidy gobject-introspection libdbusmenu-gtk3-dev libevdev-dev libfmt-dev libgirepository1.0-dev libgtk-3-dev libgtkmm-3.0-dev libinput-dev libjsoncpp-dev libmpdclient-dev libnl-3-dev libnl-genl-3-dev libpulse-dev libsigc++-2.0-dev libspdlog-dev libwayland-dev scdoc upower libxkbregistry-dev libupower-glib-dev libwireplumber-0.4-dev libsndio-dev libgtk-layer-shell-dev libplayerctl-dev libjack-dev libhdate-dev
 git clone https://github.com/Alexays/Waybar
 sudo rm -rf ./Waybar/meson.build
-mv ./waybarfix/meson.build ./Waybar/
+cp ./waybarfix/meson.build ./Waybar/
 cd Waybar
 sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
-meson --prefix=~/.local --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
+meson --prefix=~/.local --buildtype=plain --auto-features=enabled build
 meson configure -Dexperimental=true build
 sudo ninja -C build install
 cd ..
-sudo rm -rf Waybar
+sudo rm -rf ./Waybar
 
 sudo rm -rf ~/.config/waybar
 cp -r dots/waybar ~/.config/

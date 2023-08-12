@@ -14,10 +14,10 @@ cp -r hypr/xdg-portal-hyprland ~/.config/hypr/
 cp -r hypr/hyprpaper.conf ~/.config/hypr/
 
 #nvidia patch
-sed -i 's/glFlush();/glFinish();/g' Hyprland/subprojects/wlroots/render/gles2/renderer.c
+#sed -i 's/glFlush();/glFinish();/g' Hyprland/subprojects/wlroots/render/gles2/renderer.c
 
-sudo rm Hyprland/subprojects/wlroots/types/output/render.c
-cp -R wlrootspatch/render.c Hyprland/subprojects/wlroots/types/output/
+#sudo rm Hyprland/subprojects/wlroots/types/output/render.c
+#cp -R wlrootspatch/render.c Hyprland/subprojects/wlroots/types/output/
 
 cd Hyprland
 cd subprojects
@@ -29,7 +29,7 @@ ninja -C build
 sudo ninja -C build install 
 
 
-for SOFT in xdg-desktop-portal-gnome xdg-desktop-portal-gtk xdg-desktop-portal
+for SOFT in xdg-desktop-portal-gnome xdg-desktop-portal-gtk
 do
     sudo apt remove $SOFT
 done

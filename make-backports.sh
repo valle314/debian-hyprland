@@ -1,8 +1,5 @@
 #!/bin/bash 
 
-sudo rm /etc/apt/sources.list
-sudo cp /dots/sources.list /etc/apt/
-
 sudo apt update 
 sudo apt upgrade 
 
@@ -13,24 +10,24 @@ cd ./backports
 
 ../scripts/backports-build.sh wayland
 cd ./wayland-backports
-../../backports-remove-dbg.sh
+../../scripts/backports-remove-dbg.sh
 sudo apt install ./lib*.deb
 cd ..
 
 ../scripts/backports-build.sh wayland-protocols
-cd ./wayland-backports
-../../backports-remove-dbg.sh
+cd ./wayland-protocols-backports
+../../scripts/backports-remove-dbg.sh
 sudo apt install ./way*.deb
 cd ..
 
 ../scripts/backports-build.sh libinput
-cd ./wayland-backports
-../../backports-remove-dbg.sh
+cd ./libinput-backports
+../../scripts/backports-remove-dbg.sh
 sudo apt install ./lib*.deb
 cd ..
 
 ../scripts/backports-build.sh swayimg
-cd ./wayland-backports
-../../backports-remove-dbg.sh
+cd ./swayimg-backports
+../../scripts/backports-remove-dbg.sh
 sudo apt install ./sway*.deb
 cd ..
