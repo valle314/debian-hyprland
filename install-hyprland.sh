@@ -14,17 +14,17 @@ git clone --recursive https://github.com/hyprwm/Hyprland
 #cp -r hypr/hyprpaper.conf ~/.config/hypr/
 
 # TODO
-#sudo rm Hyprland/subprojects/wlroots/types/output/render.c
-#cp -R wlrootspatch/render.c Hyprland/subprojects/wlroots/types/output/
+sudo rm Hyprland/subprojects/wlroots/types/output/render.c
+cp -R wlrootspatch/render.c Hyprland/subprojects/wlroots/types/output/
 
-# cd Hyprland
-# cd subprojects
-# git clone https://gitlab.freedesktop.org/emersion/libdisplay-info
-# git clone https://github.com/emersion/libliftoff
-# cd ..
-# meson build
-# ninja -C build
-# sudo ninja -C build install 
+cd Hyprland
+cd subprojects
+git clone https://gitlab.freedesktop.org/emersion/libdisplay-info
+git clone https://github.com/emersion/libliftoff
+cd ..
+meson build
+ninja -C build
+sudo ninja -C build install 
 
 
 for SOFT in xdg-desktop-portal-gnome xdg-desktop-portal-gtk 

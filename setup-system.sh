@@ -160,7 +160,7 @@ sudo rm -rf ~/.config/waybar
 cp -r dots/waybar ~/.config/
 
 # just to be sure ..
-sudo apt remove -y neovim
+sudo apt remove -y neovim vlc
 
 # yt-dlp
 sudo apt install -y yt-dlp

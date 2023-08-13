@@ -1,3 +1,0 @@
-uint32_t wlr_output_preferred_read_format(struct wlr_output *output) {
-    return DRM_FORMAT_XRGB8888;
-}
