@@ -4,7 +4,7 @@
 mkdir -p ~/.local/bin
 cp -r scripts ~/.local/
 
-sudo apt install -y imagemagick
+sudo apt install --no-install-recommends -y imagemagick
 scripts/change-default-hyprland-backgrounds.sh
 
 sudo rm -rf ~/.config/mimeapps.list
@@ -43,12 +43,12 @@ cp -r ./wallpaper/my_wallpaper.jpg ~/pics/wallpaper/
 cp -r ./templates ~/
 
 # foot
-sudo apt install -y foot
+sudo apt install --no-install-recommends -y foot
 sudo rm -rf ~/.config/foot
 cp -r dots/foot ~/.config/
 
 # ranger
-sudo apt install -y fzf unzip tar udiskie fd-find ranger
+sudo apt install --no-install-recommends -y fzf unzip tar udiskie fd-find ranger
 sudo rm -rf ~/.config/ranger
 cp -r dots/ranger ~/.config/
 mkdir -p ~/.local/share/trash
@@ -66,7 +66,7 @@ sudo rm -rf ./dragon
 sudo apt remove -y neovim
 
 ## get some dependencies for neovim plugins
-sudo apt install -y ripgrep latex-mk wl-clipboard python3-pynvim curl
+sudo apt install --no-install-recommends -y ripgrep latex-mk wl-clipboard python3-pynvim curl
 
 git clone https://github.com/neovim/neovim
 cd neovim
@@ -83,7 +83,7 @@ sudo rm -rf ~/.config/nvim
 cp -r dots/nvim ~/.config/ 
 
 # sioyek
-sudo apt install -y sioyek
+sudo apt install --no-install-recommends -y sioyek
 sudo rm -rf ~/.config/sioyek
 cp -r dots/sioyek ~/.config/ 
 
@@ -95,17 +95,17 @@ cp dots/bash/.bashrc ~/
 cp dots/bash/.bash_profile ~/
 
 # fuzzel
-sudo apt install -y fuzzel
+sudo apt install --no-install-recommends -y fuzzel
 sudo rm -rf ~/.config/fuzzel
 cp -r dots/fuzzel ~/.config/
 
 # mpv
-sudo apt install -y mpv
+sudo apt install --no-install-recommends -y mpv
 sudo rm -rf ~/.config/mpv
 cp -r dots/mpv ~/.config/
 
 # grim, slurp, swappy for screenshots
-sudo apt install -y scdoc
+sudo apt install --no-install-recommends -y scdoc
 git clone https://github.com/jtheoof/swappy
 cd swappy 
 meson setup build
@@ -118,10 +118,10 @@ sudo rm -rf ./swappy
 sudo rm -rf ~/.config/swappy
 cp -r dots/swappy ~/.config/
 
-sudo apt install -y grim slurp
+sudo apt install --no-install-recommends -y grim slurp
 
 a hyprpaper and dependencies
-sudo apt install -y libmagic-dev
+sudo apt install --no-install-recommends -y libmagic-dev
 git clone https://github.com/hyprwm/hyprpaper
 cd hyprpaper
 make all
@@ -144,7 +144,7 @@ sudo rm -rf ~/.config/swayimg
 cp -r dots/swayimg ~/.config/
 
 # waybar
-sudo apt install -y clang-tidy gobject-introspection libdbusmenu-gtk3-dev libevdev-dev libfmt-dev libgirepository1.0-dev libgtk-3-dev libgtkmm-3.0-dev libinput-dev libjsoncpp-dev libmpdclient-dev libnl-3-dev libnl-genl-3-dev libpulse-dev libsigc++-2.0-dev libspdlog-dev libwayland-dev scdoc upower libxkbregistry-dev libupower-glib-dev libwireplumber-0.4-dev libsndio-dev libgtk-layer-shell-dev libplayerctl-dev libjack-dev libhdate-dev
+sudo apt install --no-install-recommends -y clang-tidy gobject-introspection libdbusmenu-gtk3-dev libevdev-dev libfmt-dev libgirepository1.0-dev libgtk-3-dev libgtkmm-3.0-dev libinput-dev libjsoncpp-dev libmpdclient-dev libnl-3-dev libnl-genl-3-dev libpulse-dev libsigc++-2.0-dev libspdlog-dev libwayland-dev scdoc upower libxkbregistry-dev libupower-glib-dev libwireplumber-0.4-dev libsndio-dev libgtk-layer-shell-dev libplayerctl-dev libjack-dev libhdate-dev
 git clone https://github.com/Alexays/Waybar
 sudo rm -rf ./Waybar/meson.build
 cp ./waybarfix/meson.build ./Waybar/
@@ -163,35 +163,35 @@ cp -r dots/waybar ~/.config/
 sudo apt remove -y neovim vlc
 
 # yt-dlp
-sudo apt install -y yt-dlp
+sudo apt install --no-install-recommends -y yt-dlp
 sudo rm -rf ~/.config/yt-dlp
 cp -r dots/yt-dlp ~/.config/
 
 # dunst
-sudo apt install -y dunst 
+sudo apt install --no-install-recommends -y dunst 
 
 # pavucontrol
-sudo apt install -y pavucontrol 
+sudo apt install --no-install-recommends -y pavucontrol 
 
 # wlogout
-sudo apt install -y wlogout
+# sudo apt install --no-install-recommends -y wlogout
 
 # node and npm
-sudo apt install -y nodejs npm
+sudo apt install --no-install-recommends -y nodejs npm
 
 # taskwarrior
-sudo apt install taskwarrior
+sudo apt install --no-install-recommends taskwarrior
 sudo rm -rf ~/.config/task
 mkdir -p ~/.config/task
 cp -r dots/task/.taskrc ~/.config/task/
 
 # vit
-sudo apt install -y vit
+sudo apt install --no-install-recommends -y vit
 sudo rm -rf ~/.config/task
 cp -r dots/.vit ~/
 
 # when 
-sudo apt install -y when
+sudo apt install --no-install-recommends -y when
 sudo rm -rf ~/.when
 cp -r dots/.when ~/
 
@@ -220,3 +220,9 @@ Actions=Private;
 Exec=${HOME}/.local/share/firefox/firefox --private-window %u
 Name=Open in private mode
 EOT
+
+# to make firefox work..
+sudo apt install --no-install-recommends -y libdbus-glib-1-2 
+
+# for obs ?
+sudo apt install --no-install-recommends -y qtwayland5 qt5ct 

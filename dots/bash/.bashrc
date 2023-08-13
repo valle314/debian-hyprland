@@ -6,6 +6,10 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
+alias apti='sudo apt install --no-install-recommends'
+alias aptr='sudo apt remove'
+alias apts='apt search'
+
 alias r='. ranger'
 
 alias en_to_de='trans -brief en:de'
