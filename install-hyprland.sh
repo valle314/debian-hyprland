@@ -6,14 +6,15 @@ sudo rm -rf Hyprland/
 echo "building hyprland"
 git clone --recursive https://github.com/hyprwm/Hyprland
 
-#sudo rm -rf ~/.config/hypr
-#mkdir -p  ~/.config/hypr
+sudo rm -rf ~/.config/hypr
+mkdir -p  ~/.config/hypr
 
-#cp -r hypr/hyprland.conf ~/.config/hypr/
-#cp -r hypr/xdg-portal-hyprland ~/.config/hypr/
-#cp -r hypr/hyprpaper.conf ~/.config/hypr/
+cp -r hypr/hyprland.conf ~/.config/hypr/
+cp -r hypr/xdg-portal-hyprland ~/.config/hypr/
+cp -r hypr/hyprpaper.conf ~/.config/hypr/
 
-# TODO
+# wlroots patch for nvidia and screen sharing
+sed -i 's/glFlush();/glFinish();/g' Hyprland/subprojects/wlroots/render/gles2/renderer.c
 sudo rm Hyprland/subprojects/wlroots/types/output/render.c
 cp -R wlrootspatch/render.c Hyprland/subprojects/wlroots/types/output/
 
