@@ -9,6 +9,13 @@ alias grep='grep --color=auto'
 alias apti='sudo apt install --no-install-recommends'
 alias aptr='sudo apt remove'
 alias apts='apt search'
+alias aptl='apt list --installed'
+
+alias reboot='sudo systemctl reboot'
+alias shutdown='sudo systemctl poweroff'
+alias poweroff='sudo systemctl poweroff'
+alias logout='loginctl terminate-user valentin'
+
 
 alias r='. ranger'
 

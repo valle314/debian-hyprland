@@ -168,13 +168,10 @@ sudo rm -rf ~/.config/yt-dlp
 cp -r dots/yt-dlp ~/.config/
 
 # dunst
-sudo apt install --no-install-recommends -y dunst 
+sudo apt install --no-install-recommends -y dunst polkit-kde-agent-1
 
 # pavucontrol
 sudo apt install --no-install-recommends -y pavucontrol 
-
-# wlogout
-# sudo apt install --no-install-recommends -y wlogout
 
 # node and npm
 sudo apt install --no-install-recommends -y nodejs npm
