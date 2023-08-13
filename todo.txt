@@ -1,12 +1,6 @@
-* install firefox with your script:
-    - https://www.mozilla.org/en-US/firefox/ then 
-    - tar -xjf firefox*.tar.bz2
-    - firefox-install.sh ./firefox 
-    - should work with fuzzel
-
-* remove hyprland background with your script
-
 * install NotoSans Nerd font and run: install-nerd-font.sh YOUR_NERD_FONT.zip
+
+* copy your .task file to ~/.local/share/task/
 
 * copy your private docs (includes passwords database) over
 * html_preview in /dev/repos/wry/examples/ (compile and add it to /.local/bin)

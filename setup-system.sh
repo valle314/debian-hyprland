@@ -7,6 +7,9 @@ cp -r scripts ~/.local/
 sudo apt install -y imagemagick
 scripts/change-default-hyprland-backgrounds.sh
 
+sudo rm -rf ~/.config/mimeapps.list
+cp -r dots/mimeapps.list ~/.config/
+
 sudo rm -rf ~/.config/user-dirs.dirs
 sudo rm -rf ~/.config/user-dirs.locale
 touch ~/.config/user-dirs.dirs
@@ -60,19 +63,20 @@ cd ..
 sudo rm -rf ./dragon
 
 # neovim
+sudo apt remove -y neovim
+
 ## get some dependencies for neovim plugins
 sudo apt install -y ripgrep latex-mk wl-clipboard python3-pynvim curl
 
 git clone https://github.com/neovim/neovim
 cd neovim
-make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=~/.local
-sudo make install
+make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local
+make install
 cd ..
 sudo rm -rf ./neovim
 
-## packer for neovim
-mkdir -p ~/.local/share/nvim/pack/packer/start/
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/pack/packer/start/packer.nvim
+# fix latexmk for debian..
+sudo cp /usr/bin/latex-mk /usr/bin/latexmk 
 
 ## dots for neovim  
 sudo rm -rf ~/.config/nvim
@@ -139,7 +143,7 @@ sudo rm -rf ./hyprpicker
 sudo rm -rf ~/.config/swayimg
 cp -r dots/swayimg ~/.config/
 
-#waybar
+# waybar
 sudo apt install -y clang-tidy gobject-introspection libdbusmenu-gtk3-dev libevdev-dev libfmt-dev libgirepository1.0-dev libgtk-3-dev libgtkmm-3.0-dev libinput-dev libjsoncpp-dev libmpdclient-dev libnl-3-dev libnl-genl-3-dev libpulse-dev libsigc++-2.0-dev libspdlog-dev libwayland-dev scdoc upower libxkbregistry-dev libupower-glib-dev libwireplumber-0.4-dev libsndio-dev libgtk-layer-shell-dev libplayerctl-dev libjack-dev libhdate-dev
 git clone https://github.com/Alexays/Waybar
 sudo rm -rf ./Waybar/meson.build
@@ -148,19 +152,22 @@ cd Waybar
 sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
 meson --prefix=~/.local --buildtype=plain --auto-features=enabled build
 meson configure -Dexperimental=true build
-sudo ninja -C build install
+ninja -C build install
 cd ..
 sudo rm -rf ./Waybar
 
 sudo rm -rf ~/.config/waybar
 cp -r dots/waybar ~/.config/
 
+# just to be sure ..
+sudo apt remove -y neovim
+
 # yt-dlp
 sudo apt install -y yt-dlp
 sudo rm -rf ~/.config/yt-dlp
 cp -r dots/yt-dlp ~/.config/
 
-#dunst
+# dunst
 sudo apt install -y dunst 
 
 # pavucontrol
@@ -170,21 +177,46 @@ sudo apt install -y pavucontrol
 sudo apt install -y wlogout
 
 # node and npm
-sudo apt install nodejs npm
+sudo apt install -y nodejs npm
 
 # taskwarrior
 sudo apt install taskwarrior
 sudo rm -rf ~/.config/task
-cp -r dots/task ~/.config/
+mkdir -p ~/.config/task
+cp -r dots/task/.taskrc ~/.config/task/
 
-#vit
-sudo apt install vit
+# vit
+sudo apt install -y vit
 sudo rm -rf ~/.config/task
 cp -r dots/.vit ~/
 
 # when 
-sudo apt install when
+sudo apt install -y when
 sudo rm -rf ~/.when
 cp -r dots/.when ~/
 
+# firefox
+curl 'https://download-installer.cdn.mozilla.net/pub/firefox/releases/116.0.2/linux-x86_64/en-US/firefox-116.0.2.tar.bz2' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate, br' -H 'Referer: https://www.mozilla.org/' -H 'Connection: keep-alive' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-Fetch-Dest: document' -H 'Sec-Fetch-Mode: navigate' -H 'Sec-Fetch-Site: cross-site' -o firefox.tar.bz2
+tar -xjf ./firefox.tar.bz2
+sudo rm -rf ./firefox.tar.bz2
+mv ./firefox ~/.local/share/ 
+sudo rm ~/.local/share/applications/firefox-stable.desktop
+mkdir -p ~/.local/share/applications/
+touch ~/.local/share/applications/firefox-stable.desktop
+cat <<EOT >> ~/.local/share/applications/firefox-stable.desktop
+[Desktop Entry]
+Name=Firefox Stable
+Comment=Web Browser
+Exec=${HOME}/.local/share/firefox/firefox %u
+Terminal=false
+Type=Application
+Icon=${HOME}/.local/share/firefox/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Actions=Private;
 
+[Desktop Action Private]
+Exec=${HOME}/.local/share/firefox/firefox --private-window %u
+Name=Open in private mode
+EOT

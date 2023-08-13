@@ -1,15 +1,19 @@
-vim.cmd [[packadd packer.nvim]]
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-    use {'wbthomason/packer.nvim'}
+  use 'wbthomason/packer.nvim'
 
-    -- install ripgrep to make livegrep work
-    -- see deps: https://github.com/nvim-telescope/telescope.nvim
-    -- use 
-    -- {
-    --     'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    --     requires = {{'nvim-lua/plenary.nvim'}}
-    -- }
 
     use {'ibhagwan/fzf-lua'}
 
@@ -81,6 +85,7 @@ return require('packer').startup(function(use)
         config = "require('adoc_pdf_live').setup()"
     }
 
-    -- use "lukas-reineke/indent-blankline.nvim"
-
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)

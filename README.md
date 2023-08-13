@@ -1,7 +1,7 @@
 # debian-hyprland
 
-* prepare nvdia and backports then reboot
-* make-backports
-* install hyprland deps
-* install hyprland
-* setup system
+* prepare-nvidia-and-backports.sh then reboot
+* make-backports.sh
+* hyprland-dependencies.sh
+* install-hyprland.sh
+* setup-system.sh

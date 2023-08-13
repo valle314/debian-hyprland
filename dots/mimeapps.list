@@ -1,0 +1,12 @@
+[Default Applications]
+image/png=swayimg.desktop;
+image/gif=swayimg.desktop;
+image/bmp=swayimg.desktop;
+image/svg+xml=swayimg.desktop;
+image/webp=swayimg.desktop;
+image/jpeg=swayimg.desktop;
+video/mp4=mpv.desktop;
+video/x-flv=mpv.desktop;
+audio/mpeg=mpv.desktop;
+video/quicktime=mpv.desktop;
+application/pdf=sioyek.desktop;
