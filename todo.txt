@@ -1,5 +1,7 @@
 * install NotoSans Nerd font and run: install-nerd-font.sh YOUR_NERD_FONT.zip
 
+* firefox: ublock, gruvbox theme, Vimium-FF
+
 * copy your .task file to ~/.local/share/task/
 
 * copy your private docs (includes passwords database) over
@@ -27,6 +29,9 @@
 
 * install miniconda and add ~/.local/lib/miniconda3/bin to bash_profile
 
+* to make obs screen sharing work (plugins are needed!):
+    sudo apt install --no-install-recommends obs-studio obs-plugins
+
 * some programs you want to install:
     - sc-im
     - libre office
@@ -41,6 +46,7 @@
     - github-cli
     - keepassxc
     - telegram
+    - discord?
 
 * TODO!!! SETUP VM FOR WINDOWS10
 * TODO de_to_en (see docs) translate shell??

@@ -4,7 +4,7 @@ sudo rm /etc/apt/sources.list
 sudo cp -r dots/sources.list /etc/apt/
 sudo apt update
 sudo apt upgrade
-sudo apt install --no-install-recommends nvidia-driver
+sudo apt install nvidia-driver
 
 echo "updating config for nvidia"
 sudo mkdir -p /etc/default/

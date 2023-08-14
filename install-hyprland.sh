@@ -4,19 +4,18 @@ sudo rm -rf Hyprland/
 
 #building hyprland
 echo "building hyprland"
-git clone --recursive https://github.com/hyprwm/Hyprland
+git clone --recursive https://github.com/hyprwm/Hyprland --branch v0.28.0 --single-branch
 
 sudo rm -rf ~/.config/hypr
 mkdir -p  ~/.config/hypr
 
 cp -r hypr/hyprland.conf ~/.config/hypr/
-cp -r hypr/xdg-portal-hyprland ~/.config/hypr/
 cp -r hypr/hyprpaper.conf ~/.config/hypr/
 
 # wlroots patch for nvidia and screen sharing
-# sed -i 's/glFlush();/glFinish();/g' Hyprland/subprojects/wlroots/render/gles2/renderer.c
-# sudo rm Hyprland/subprojects/wlroots/types/output/render.c
-# cp -R wlrootspatch/render.c Hyprland/subprojects/wlroots/types/output/
+sed -i 's/glFlush();/glFinish();/g' Hyprland/subprojects/wlroots/render/gles2/renderer.c
+sudo rm Hyprland/subprojects/wlroots/types/output/render.c
+cp -R wlrootspatch/render.c Hyprland/subprojects/wlroots/types/output/
 
 cd Hyprland
 cd subprojects
@@ -32,8 +31,6 @@ for SOFT in xdg-desktop-portal-gnome xdg-desktop-portal-gtk
 do
     sudo apt remove -y $SOFT
 done
-
-sudo apt install --no-install-recommends -y xdg-desktop-portal-wlr xdg-desktop-portal
 
 echo "done!"
 

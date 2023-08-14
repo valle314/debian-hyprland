@@ -50,7 +50,8 @@ cp -r dots/foot ~/.config/
 
 # ranger
 echo "----------------------------------------------------------------------------ranger----------------------------------------------------------------------------"
-sudo apt install --no-install-recommends -y fzf unzip tar udiskie fd-find ranger
+sudo apt install udiskie 
+sudo apt install --no-install-recommends -y fzf unzip tar fd-find ranger
 sudo rm -rf ~/.config/ranger
 cp -r dots/ranger ~/.config/
 mkdir -p ~/.local/share/trash
@@ -66,10 +67,10 @@ cd ..
 sudo rm -rf ./dragon
 
 ## get some dependencies for neovim plugins
-echo "----------------------------------------------------------------------------get some dependencies for neovim plugins----------------------------------------------------------------------------"
+echo "----------------------------------------------------------------------------neovim----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y ripgrep latex-mk wl-clipboard python3-pynvim curl
 
-git clone https://github.com/neovim/neovim
+git clone https://github.com/neovim/neovim --branch v0.9.1 --single-branch
 cd neovim
 make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local
 make install
@@ -114,7 +115,7 @@ cp -r dots/mpv ~/.config/
 # grim, slurp, swappy for screenshots
 echo "----------------------------------------------------------------------------grim, slurp, swappy for screenshots----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y scdoc
-git clone https://github.com/jtheoof/swappy
+git clone https://github.com/jtheoof/swappy --branch v1.5.1 --single-branch
 cd swappy 
 meson setup build
 ninja -C build
@@ -130,7 +131,7 @@ sudo apt install --no-install-recommends -y grim slurp
 
 a hyprpaper and dependencies
 sudo apt install --no-install-recommends -y libmagic-dev
-git clone https://github.com/hyprwm/hyprpaper
+git clone https://github.com/hyprwm/hyprpaper --branch v0.4.0 --single-branch
 cd hyprpaper
 make all
 sudo rm ~/.local/bin/hyprpaper
@@ -140,7 +141,7 @@ sudo rm -rf ./hyprpaper
 
 # hyprpicker
 echo "----------------------------------------------------------------------------hyprpicker----------------------------------------------------------------------------"
-git clone https://github.com/hyprwm/hyprpicker
+git clone https://github.com/hyprwm/hyprpicker --branch v0.1.1 --single-branch
 cd hyprpicker
 make all
 sudo rm ~/.local/bin/hyprpicker
@@ -149,14 +150,14 @@ cd ..
 sudo rm -rf ./hyprpicker
 
 # swayimg
-echo "----------------------------------------------------------------------------swayimg----------------------------------------------------------------------------"
+echo "----------------------------------------------------------------------------swayimg(config)----------------------------------------------------------------------------"
 sudo rm -rf ~/.config/swayimg
 cp -r dots/swayimg ~/.config/
 
 # waybar
-echo "----------------------------------------------------------------------------waybar----------------------------------------------------------------------------"
+echo "----------------------------------------------------------------------------waybar(ERROR EXPECTED at the end because non root install)----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y clang-tidy gobject-introspection libdbusmenu-gtk3-dev libevdev-dev libfmt-dev libgirepository1.0-dev libgtk-3-dev libgtkmm-3.0-dev libinput-dev libjsoncpp-dev libmpdclient-dev libnl-3-dev libnl-genl-3-dev libpulse-dev libsigc++-2.0-dev libspdlog-dev libwayland-dev scdoc upower libxkbregistry-dev libupower-glib-dev libwireplumber-0.4-dev libsndio-dev libgtk-layer-shell-dev libplayerctl-dev libjack-dev libhdate-dev
-git clone https://github.com/Alexays/Waybar
+git clone https://github.com/Alexays/Waybar --branch 0.9.20 --single-branch
 sudo rm -rf ./Waybar/meson.build
 cp ./waybarfix/meson.build ./Waybar/
 cd Waybar
@@ -178,7 +179,7 @@ cp -r dots/yt-dlp ~/.config/
 
 # dunst and authentication Agent
 echo "----------------------------------------------------------------------------dunst and authentication Agent----------------------------------------------------------------------------"
-sudo apt install --no-install-recommends -y dunst polkit-kde-agent-1 
+sudo apt install -y dunst polkit-kde-agent-1 
 
 # pavucontrol
 echo "----------------------------------------------------------------------------pavucontrol----------------------------------------------------------------------------"
@@ -237,5 +238,18 @@ EOT
 # to make firefox work..
 sudo apt install --no-install-recommends -y libdbus-glib-1-2 
 
-# pipewire and pulse and qt 5 for obs
-sudo apt install --no-install-recommends -y wireplumber pipewire pipewire-pulse qtwayland5 qt5ct 
+# pipewire, wireplumber and qt 5 for obs and xdg desktop portal hyprland
+echo "----------------------------------------------------------------------------xdg-desktop-portal-hyprland----------------------------------------------------------------------------"
+sudo apt install --no-install-recommends libpipewire-0.3-0 libpipewire-0.3-dev libpipewire-0.3-modules libwireplumber-0.4-0 libwireplumber-0.4-dev pipewire-bin pipewire-pulse pipewire wireless-tools wireplumber libinih-dev libsystemd-dev qtbase5-dev qtdeclarative5-dev qt6-base-dev
+
+git clone https://github.com/hyprwm/xdg-desktop-portal-hyprland --branch v0.5.0 --single-branch
+cd xdg-desktop-portal-hyprland
+meson build --prefix=/usr
+ninja -C build
+cd hyprland-share-picker && make all && cd ..
+sudo ninja -C build install
+sudo cp ./hyprland-share-picker/build/hyprland-share-picker /usr/bin
+cd ..
+sudo rm -rf ./xdg-desktop-portal-hyprland
+
+echo "logout or reboot system to start xdg-desktop-portal-hyprland"
