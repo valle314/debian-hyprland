@@ -50,7 +50,7 @@ cp -r dots/foot ~/.config/
 
 # ranger
 echo "----------------------------------------------------------------------------ranger----------------------------------------------------------------------------"
-sudo apt install udiskie 
+sudo apt install -y udiskie 
 sudo apt install --no-install-recommends -y fzf unzip tar fd-find ranger
 sudo rm -rf ~/.config/ranger
 cp -r dots/ranger ~/.config/
@@ -240,7 +240,7 @@ sudo apt install --no-install-recommends -y libdbus-glib-1-2
 
 # pipewire, wireplumber and qt 5 for obs and xdg desktop portal hyprland
 echo "----------------------------------------------------------------------------xdg-desktop-portal-hyprland----------------------------------------------------------------------------"
-sudo apt install --no-install-recommends libpipewire-0.3-0 libpipewire-0.3-dev libpipewire-0.3-modules libwireplumber-0.4-0 libwireplumber-0.4-dev pipewire-bin pipewire-pulse pipewire wireless-tools wireplumber libinih-dev libsystemd-dev qtbase5-dev qtdeclarative5-dev qt6-base-dev
+sudo apt install --no-install-recommends -y libpipewire-0.3-0 libpipewire-0.3-dev libpipewire-0.3-modules libwireplumber-0.4-0 libwireplumber-0.4-dev pipewire-bin pipewire-pulse pipewire wireless-tools wireplumber libinih-dev libsystemd-dev qtbase5-dev qtdeclarative5-dev qt6-base-dev
 
 git clone https://github.com/hyprwm/xdg-desktop-portal-hyprland --branch v0.5.0 --single-branch
 cd xdg-desktop-portal-hyprland
@@ -251,5 +251,11 @@ sudo ninja -C build install
 sudo cp ./hyprland-share-picker/build/hyprland-share-picker /usr/bin
 cd ..
 sudo rm -rf ./xdg-desktop-portal-hyprland
+
+
+# hyprpro
+echo "----------------------------------------------------------------------------hyprprop----------------------------------------------------------------------------"
+git clone https://github.com/vilari-mickopf/hyprprop
+cp ./hyprprop/hyprprop ~/.local/bin/
 
 echo "logout or reboot system to start xdg-desktop-portal-hyprland"
