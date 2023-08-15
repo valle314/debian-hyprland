@@ -257,5 +257,6 @@ sudo rm -rf ./xdg-desktop-portal-hyprland
 echo "----------------------------------------------------------------------------hyprprop----------------------------------------------------------------------------"
 git clone https://github.com/vilari-mickopf/hyprprop
 cp ./hyprprop/hyprprop ~/.local/bin/
+sudo rm -rf ./hyprprop
 
 echo "logout or reboot system to start xdg-desktop-portal-hyprland"
