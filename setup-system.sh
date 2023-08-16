@@ -82,7 +82,7 @@ echo "--------------------------------------------------------------------------
 sudo cp /usr/bin/latex-mk /usr/bin/latexmk 
 
 ## dots for neovim  
-echo "----------------------------------------------------------------------------dots for neovim  ----------------------------------------------------------------------------"
+echo "----------------------------------------------------------------------------dots for neovim----------------------------------------------------------------------------"
 sudo rm -rf ~/.config/nvim
 cp -r dots/nvim ~/.config/ 
 
@@ -203,7 +203,7 @@ sudo rm -rf ~/.config/task
 cp -r dots/.vit ~/
 
 # when 
-echo "----------------------------------------------------------------------------when ----------------------------------------------------------------------------"
+echo "----------------------------------------------------------------------------when----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y when
 sudo rm -rf ~/.when
 cp -r dots/.when ~/
@@ -251,9 +251,9 @@ sudo ninja -C build install
 sudo cp ./hyprland-share-picker/build/hyprland-share-picker /usr/bin
 cd ..
 sudo rm -rf ./xdg-desktop-portal-hyprland
+sudo apt install --no-install-recommends -y xdg-desktop-portal
 
-
-# hyprpro
+# hyprprop
 echo "----------------------------------------------------------------------------hyprprop----------------------------------------------------------------------------"
 git clone https://github.com/vilari-mickopf/hyprprop
 cp ./hyprprop/hyprprop ~/.local/bin/

@@ -11,11 +11,10 @@ alias aptr='sudo apt remove'
 alias apts='apt search'
 alias aptl='apt list --installed'
 
-alias reboot='sudo systemctl reboot'
-alias shutdown='sudo systemctl poweroff'
-alias poweroff='sudo systemctl poweroff'
+alias reboot='systemctl reboot'
+alias shutdown='systemctl poweroff'
+alias poweroff='systemctl poweroff'
 alias logout='loginctl terminate-user valentin'
-
 
 alias r='. ranger'
 
@@ -27,4 +26,3 @@ alias ru_to_de='trans -brief ru:de'
 alias vit='vit list'
 
 PS1='[\u@\h \W]\$ '
-

@@ -2,7 +2,8 @@
 
 * firefox: ublock, gruvbox theme, Vimium-FF
 
-* copy your .task file to ~/.local/share/task/
+* copy your .task file to ~/
+* copy over your .when file to ~/
 
 * copy your private docs (includes passwords database) over
 * html_preview in /dev/repos/wry/examples/ (compile and add it to /.local/bin)
@@ -12,8 +13,6 @@
 
 * install rust 
     -https://rustup.rs/, just do: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-* make hyprprop work? or find an alternative
 
 * neovim:
     - nvim packer.lua, ignore errors, then once or twice :so then :PackerSync and then :MasonUpdate then :checkhealth
@@ -30,7 +29,8 @@
 * install miniconda and add ~/.local/lib/miniconda3/bin to bash_profile
 
 * to make obs screen sharing work (plugins are needed!):
-    sudo apt install --no-install-recommends obs-studio obs-plugins
+    - sudo apt install --no-install-recommends obs-studio obs-plugins
+    - sudo apt install --no-install-recommends qtwayland5 qt6-wayland qtdeclarative5-dev
 
 * some programs you want to install:
     - sc-im
@@ -50,4 +50,4 @@
 
 * TODO!!! SETUP VM FOR WINDOWS10
 * TODO de_to_en (see docs) translate shell??
-* TODO tesseract oder so hier zum laufen bringen..
+* TODO tesseract ..
