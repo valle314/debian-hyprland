@@ -68,7 +68,7 @@ sudo rm -rf ./dragon
 
 ## get some dependencies for neovim plugins
 echo "----------------------------------------------------------------------------neovim----------------------------------------------------------------------------"
-sudo apt install --no-install-recommends -y ripgrep latex-mk wl-clipboard python3-pynvim curl
+sudo apt install --no-install-recommends -y ripgrep latexmk wl-clipboard python3-pynvim curl
 
 git clone https://github.com/neovim/neovim --branch v0.9.1 --single-branch
 cd neovim
@@ -76,10 +76,6 @@ make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local
 make install
 cd ..
 sudo rm -rf ./neovim
-
-# fix latexmk for debian..
-echo "----------------------------------------------------------------------------fix latexmk for debian..----------------------------------------------------------------------------"
-sudo cp /usr/bin/latex-mk /usr/bin/latexmk 
 
 ## dots for neovim  
 echo "----------------------------------------------------------------------------dots for neovim----------------------------------------------------------------------------"
