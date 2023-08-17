@@ -259,4 +259,15 @@ git clone https://github.com/vilari-mickopf/hyprprop
 cp ./hyprprop/hyprprop ~/.local/bin/
 sudo rm -rf ./hyprprop
 
+# qrcp
+echo "----------------------------------------------------------------------------qrcp----------------------------------------------------------------------------"
+mkdir ./qrcp
+cd ./qrcp
+wget https://github.com/claudiodangelis/qrcp/releases/download/0.10.1/qrcp_0.10.1_linux_x86_64.tar.gz 
+tar xf qrcp_0.10.1_linux_x86_64.tar.gz
+sudo chmod +x qrcp
+mv ./qrcp ~/.local/bin/
+cd ..
+sudo rm -rf ./qrcp
+
 echo "logout or reboot system to start xdg-desktop-portal-hyprland"
