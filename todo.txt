@@ -2,7 +2,7 @@
 
 * firefox: ublock, gruvbox theme, Vimium-FF
 
-* copy your .task file to ~/
+* copy your .task file to /.local/share/task/
 * copy over your .when file to ~/
 
 * copy your private docs (includes passwords database) over
@@ -48,6 +48,6 @@
     - telegram
     - discord?
 
-* TODO!!! SETUP VM FOR WINDOWS10
-* TODO de_to_en (see docs) translate shell??
-* TODO tesseract ..
+* setup vmware for windows10
+* de_to_en (see docs) translate shell
+* tesseract

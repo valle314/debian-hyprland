@@ -199,7 +199,7 @@ cp -r dots/task/.taskrc ~/.config/task/
 # vit
 echo "----------------------------------------------------------------------------vit----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y vit
-sudo rm -rf ~/.config/task
+sudo rm -rf ~/.vit
 cp -r dots/.vit ~/
 
 # when 
