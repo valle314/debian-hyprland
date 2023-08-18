@@ -5,6 +5,12 @@
 * copy your .task file to /.local/share/task/
 * copy over your .when file to ~/
 
+* latex packages:
+    - texlive-base
+    - texlive-lang-german
+    - texlive-latex-extra
+    - texlive-science
+
 * copy your private docs (includes passwords database) over
 * html_preview in /dev/repos/wry/examples/ (compile and add it to /.local/bin)
     - put html_preview.rs into /dev/repos/wry/examples/ then compile
