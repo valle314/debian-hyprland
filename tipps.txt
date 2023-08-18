@@ -1,0 +1,3 @@
+* to make obs screen sharing work (obs-plugins are needed!):
+    - sudo apt install --no-install-recommends obs-studio obs-plugins
+    - sudo apt install --no-install-recommends qtwayland5 qt6-wayland qtdeclarative5-dev

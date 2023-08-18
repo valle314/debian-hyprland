@@ -104,7 +104,15 @@ cp -r dots/fuzzel ~/.config/
 
 # mpv
 echo "----------------------------------------------------------------------------mpv----------------------------------------------------------------------------"
-sudo apt install --no-install-recommends -y mpv
+sudo apt install -y ffmpeg libavfilter-dev libass-dev libmpv-dev
+git clone https://github.com/mpv-player/mpv --branch v0.36.0 --single-branch 
+cd ./mpv
+meson setup build
+meson compile -C build
+cp ./build/mpv ~/.local/bin
+cd ..
+
+sudo rm -rf ./mpv
 sudo rm -rf ~/.config/mpv
 cp -r dots/mpv ~/.config/
 
@@ -169,7 +177,11 @@ cp -r dots/waybar ~/.config/
 
 # yt-dlp
 echo "----------------------------------------------------------------------------yt-dlp----------------------------------------------------------------------------"
-sudo apt install --no-install-recommends -y yt-dlp
+sudo apt install --no-install-recommends -y ffmpeg 
+git clone https://github.com/yt-dlp/yt-dlp --branch 2023.07.06 --single-branch 
+mv ./yt-dlp/yt-dlp.sh ~/.local/bin/yt-dlp
+sudo rm -rf ./yt-dlp
+
 sudo rm -rf ~/.config/yt-dlp
 cp -r dots/yt-dlp ~/.config/
 
@@ -234,9 +246,10 @@ EOT
 # to make firefox work..
 sudo apt install --no-install-recommends -y libdbus-glib-1-2 
 
-# pipewire, wireplumber and qt 5 for obs and xdg desktop portal hyprland
+# pipewire, wireplumber and qt5/6 for obs and xdg desktop portal hyprland
 echo "----------------------------------------------------------------------------xdg-desktop-portal-hyprland----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y libpipewire-0.3-0 libpipewire-0.3-dev libpipewire-0.3-modules libwireplumber-0.4-0 libwireplumber-0.4-dev pipewire-bin pipewire-pulse pipewire wireless-tools wireplumber libinih-dev libsystemd-dev qtbase5-dev qtdeclarative5-dev qt6-base-dev
+sudo apt install -y rtkit qt6-wayland
 
 git clone https://github.com/hyprwm/xdg-desktop-portal-hyprland --branch v0.5.0 --single-branch
 cd xdg-desktop-portal-hyprland

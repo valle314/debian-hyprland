@@ -19,8 +19,9 @@ cp -R wlrootspatch/render.c Hyprland/subprojects/wlroots/types/output/
 
 cd Hyprland
 cd subprojects
-git clone https://gitlab.freedesktop.org/emersion/libdisplay-info
-git clone https://github.com/emersion/libliftoff
+git clone https://gitlab.freedesktop.org/emersion/libdisplay-info --branch 0.1.1 --single-branch
+git clone https://gitlab.freedesktop.org/emersion/libliftoff --branch v0.4.1 --single-branch
+#git clone https://github.com/emersion/libliftoff
 cd ..
 meson build
 ninja -C build

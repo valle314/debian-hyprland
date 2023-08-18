@@ -2,7 +2,6 @@
 
 sudo apt install -y unzip 
 
-mkdir -p ~/.local/share/fonts/
 mkdir -p ~/.local/share/fonts/nerd-fonts/
 
 mv ${1} ~/.local/share/fonts/nerd-fonts/
