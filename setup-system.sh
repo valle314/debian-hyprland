@@ -112,9 +112,13 @@ meson compile -C build
 cp ./build/mpv ~/.local/bin
 cd ..
 
-sudo rm -rf ./mpv
+sudo rm -rf ./mpv 
 sudo rm -rf ~/.config/mpv
 cp -r dots/mpv ~/.config/
+
+sudo rm -rf ~/.local/share/applications/mpv.desktop 
+mkdir -p ~/.local/share/applications/
+cp -r dots/mpv.desktop ~/.local/share/applications/
 
 # grim, slurp, swappy for screenshots
 echo "----------------------------------------------------------------------------grim, slurp, swappy for screenshots----------------------------------------------------------------------------"
