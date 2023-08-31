@@ -38,4 +38,3 @@ cd ./swayimg-backports
 sudo apt install ./*.deb
 cd ..
 
-

@@ -44,14 +44,13 @@ cp -r ./templates ~/
 
 # foot
 echo "----------------------------------------------------------------------------foot----------------------------------------------------------------------------"
-sudo apt install --no-install-recommends -y foot
 sudo rm -rf ~/.config/foot
 cp -r dots/foot ~/.config/
 
 # ranger
 echo "----------------------------------------------------------------------------ranger----------------------------------------------------------------------------"
 sudo apt install -y udiskie 
-sudo apt install --no-install-recommends -y fzf unzip tar fd-find ranger
+sudo apt install --no-install-recommends -y fzf unzip zip tar fd-find ranger
 sudo rm -rf ~/.config/ranger
 cp -r dots/ranger ~/.config/
 mkdir -p ~/.local/share/trash
