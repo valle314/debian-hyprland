@@ -40,7 +40,6 @@ mkdir -p ~/pics/screenshots
 mkdir -p ~/pics/wallpaper
 mkdir -p ~/videos
 cp -r ./wallpaper/my_wallpaper.jpg ~/pics/wallpaper/
-cp -r ./templates ~/
 
 # foot
 echo "----------------------------------------------------------------------------foot----------------------------------------------------------------------------"
@@ -69,7 +68,7 @@ sudo rm -rf ./dragon
 echo "----------------------------------------------------------------------------neovim----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y ripgrep latexmk wl-clipboard python3-pynvim curl
 
-git clone https://github.com/neovim/neovim --branch v0.9.1 --single-branch
+git clone https://github.com/neovim/neovim --branch v0.9.1 --single-branch --depth 1
 cd neovim
 make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local
 make install
@@ -182,7 +181,10 @@ cp -r dots/waybar ~/.config/
 echo "----------------------------------------------------------------------------yt-dlp----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y ffmpeg 
 git clone https://github.com/yt-dlp/yt-dlp --branch 2023.07.06 --single-branch 
-mv ./yt-dlp/yt-dlp.sh ~/.local/bin/yt-dlp
+cd ./yt-dlp
+make yt-dlp
+mv ./yt-dlp ~/.local/bin/yt-dlp
+cd ..
 sudo rm -rf ./yt-dlp
 
 sudo rm -rf ~/.config/yt-dlp
@@ -204,8 +206,7 @@ sudo apt install --no-install-recommends -y nodejs npm
 echo "----------------------------------------------------------------------------taskwarrior----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends taskwarrior
 sudo rm -rf ~/.config/task
-mkdir -p ~/.config/task
-cp -r dots/task/.taskrc ~/.config/task/
+mkdir -p ~/.local/share/task/.task
 
 # vit
 echo "----------------------------------------------------------------------------vit----------------------------------------------------------------------------"
@@ -270,6 +271,12 @@ echo "--------------------------------------------------------------------------
 git clone https://github.com/vilari-mickopf/hyprprop
 cp ./hyprprop/hyprprop ~/.local/bin/
 sudo rm -rf ./hyprprop
+
+# keepassx 
+echo "----------------------------------------------------------------------------keepassx----------------------------------------------------------------------------"
+sudo apt install --no-install-recommends -y keepassx
+sudo rm -rf ~/.config/keepassxc
+cp -r dots/keepassxc ~/.config/
 
 # qrcp
 echo "----------------------------------------------------------------------------qrcp----------------------------------------------------------------------------"

@@ -1,24 +1,17 @@
-local lsp = require('lsp-zero').preset({})
+local lsp_zero = require('lsp-zero')
 
-lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
+lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
--- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
-require'lspconfig'.ltex.setup{
-    filetypes =
-    { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" }
-}
-
--- volar/vue
+-- configure some servers
 local util = require 'lspconfig.util'
-require'lspconfig'.volar.setup{
+lsp_zero.configure('volar', {
     init_options = 
     {
         typescript = 
         {
-            tsdk = '/usr/local/lib/node_modules/typescript/lib'
+            tsdk = "/home/valentin/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib"
         },
     },
     filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json', "css", "scss", "html"},
@@ -33,37 +26,39 @@ require'lspconfig'.volar.setup{
         
         return util.find_git_ancestor(fname) or vim.loop.os_homedir()
     end
-}
-
-
--- for html install with sudo: npm i -g vscode-langservers-extracted
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-require'lspconfig'.html.setup {
-  capabilities = capabilities,
-}
-
-
-
-
-lsp.setup()
-
--- You need to setup `cmp` after lsp-zero
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-
-cmp.setup({
-  mapping = {
-    ['<Tab>'] = cmp_action.tab_complete(),
-    ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
-    ["<CR>"] = cmp.mapping.confirm({select = true}),
-    ["<c-Space>"] = cmp.mapping.complete()
-  },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  }
 })
 
 
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {},
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
+})
+
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+local cmp_format = lsp_zero.cmp_format()
+
+cmp.setup({
+  formatting = cmp_format,
+  mapping = cmp.mapping.preset.insert({
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<Tab>'] = cmp_action.tab_complete(),
+    ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+    ["<CR>"] = cmp.mapping.confirm({select = true}),
+    ["<C-Space>"] = cmp.mapping.complete()
+  }),
+  window = 
+  {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+  }
+})

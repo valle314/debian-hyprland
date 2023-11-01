@@ -24,5 +24,3 @@ alias de_to_ru='trans -brief de:ru'
 alias ru_to_de='trans -brief ru:de'
 
 alias vit='vit list'
-
-PS1='[\u@\h \W]\$ '

@@ -8,10 +8,12 @@ function ChangeMyHighlights()
 
     -- for active window has orange statusline
     vim.cmd("highlight StatusLine guifg=#10111A guibg=#CBA240")
+    vim.cmd("highlight StatusLineNC guifg=#10111A guibg=#665120")
+
     -- active tab
     vim.cmd("highlight TabLineSel guifg=#10111A guibg=#CBA240")
     vim.cmd("highlight TabLine guifg=#CBA240 guibg=#45475a")
 end
 
--- vim.cmd("autocmd BufEnter * lua ChangeMyHighlights()")
-ChangeMyHighlights()
+vim.cmd("autocmd BufEnter * lua ChangeMyHighlights()")
+-- ChangeMyHighlights()

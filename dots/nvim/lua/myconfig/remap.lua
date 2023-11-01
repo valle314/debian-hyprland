@@ -29,43 +29,63 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- vim.keymap.set("v", "<leader>R", ":s/\\%V\\<\\>/R/g<Left><Left><Left><Left><Left><Left>")
 
 -- replace everything your visual selection
-vim.keymap.set("v", "<leader>r", ":s/\\%V/R/g<Left><Left><Left><Left>")
+-- vim.keymap.set("v", "<leader>r", ":s/\\%V/R/g<Left><Left><Left><Left>")
+vim.keymap.set("v", "<leader>r", ":s//R/g<Left><Left><Left><Left>")
 
--- you can switch to other screens in split view
+-- move between splits
+vim.keymap.set("n", "<c-h>", "<c-w><c-h>")
+vim.keymap.set("n", "<c-j>", "<c-w><c-j>")
+vim.keymap.set("n", "<c-k>", "<c-w><c-k>")
+vim.keymap.set("n", "<c-l>", "<c-w><c-l>")
+vim.keymap.set("t", "<c-h>", "<c-\\><c-N><c-w><c-h>")
+vim.keymap.set("t", "<c-j>", "<c-\\><c-N><c-w><c-j>")
+vim.keymap.set("t", "<c-k>", "<c-\\><c-N><c-w><c-k>")
+vim.keymap.set("t", "<c-l>", "<c-\\><c-N><c-w><c-l>")
 vim.keymap.set("n", "<Tab>", "<c-w>w")
 vim.keymap.set("n", "<S-Tab>", "<c-w>W")
 
--- closing a tab
-vim.keymap.set("n", "<c-w>", "ZZ")
+-- resize splits
+vim.keymap.set("n", "<c-left>", ":vertical resize -3<CR>")
+vim.keymap.set("n", "<c-right>", ":vertical resize +3<CR>")
+vim.keymap.set("n", "<c-up>", ":resize +3<CR>")
+vim.keymap.set("n", "<c-down>", ":resize -3<CR>")
 
--- skip real words with b,e and w
-vim.keymap.set("n", "w", "W")
-vim.keymap.set("v", "w", "W")
-vim.keymap.set("n", "b", "B")
-vim.keymap.set("v", "b", "B")
-vim.keymap.set("n", "e", "E")
-vim.keymap.set("v", "e", "E")
+-- swap windows in splits
+vim.keymap.set("n", "<c-s-h>", "[[<cmd>lua require('swap-buffers').swap_buffers('h')<CR>]]")
+vim.keymap.set("n", "<c-s-j>", "[[<cmd>lua require('swap-buffers').swap_buffers('j')<CR>]]")
+vim.keymap.set("n", "<c-s-k>", "[[<cmd>lua require('swap-buffers').swap_buffers('k')<CR>]]")
+vim.keymap.set("n", "<c-s-l>", "[[<cmd>lua require('swap-buffers').swap_buffers('l')<CR>]]")
+vim.keymap.set("t", "<c-s-h>", "<c-\\><c-N>[[<cmd>lua require('swap-buffers').swap_buffers('h')<CR>]]")
+vim.keymap.set("t", "<c-s-j>", "<c-\\><c-N>[[<cmd>lua require('swap-buffers').swap_buffers('j')<CR>]]")
+vim.keymap.set("t", "<c-s-k>", "<c-\\><c-N>[[<cmd>lua require('swap-buffers').swap_buffers('k')<CR>]]")
+vim.keymap.set("t", "<c-s-l>", "<c-\\><c-N>[[<cmd>lua require('swap-buffers').swap_buffers('l')<CR>]]")
+
+-- update, create sessions
+local session_path = vim.fn.expand(os.getenv("SESSIONS")) .. "/"
+
+local function update_session()
+    local session_name = session_path .. vim.fn.fnamemodify(vim.v.this_session, ":t")
+    vim.cmd("mksession! " .. session_name)
+end
+
+vim.keymap.set("n", "<leader>su", update_session)
+vim.keymap.set("n", "<leader>sn", ":mksession " .. session_path)
+
 
 -- jump to the beginning and end of a line
-vim.keymap.set("n", "B", "^")
-vim.keymap.set("v", "B", "^")
-vim.keymap.set("n", "E", "$")
-vim.keymap.set("v", "E", "$h")
-vim.keymap.set("n", "W", "$")
-vim.keymap.set("v", "W", "$h")
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("v", "H", "^")
+vim.keymap.set("n", "L", "$")
+vim.keymap.set("v", "L", "$h")
 
 -- switch to normal mode while in terminal
 vim.keymap.set('t', '<c-n>', '<c-\\><c-N>')
 
 -- open terminal and ranger
-vim.keymap.set("n", "<S-CR>", ":belowright 15split | terminal<CR>I")
+vim.keymap.set("n", "<leader>tx", ":belowright split | terminal<CR>")
+vim.keymap.set("n", "<leader>tv", ":leftabove vsplit | terminal<CR>")
 
 vim.keymap.set("n", ".", "@@")
-
-vim.keymap.set('n', 'f<leader>', ":call search(\"[][\\\"'(){}<>]\", \"W\")<CR>")
-vim.keymap.set('n', 'F<leader>', ":call search(\"[][\\\"'(){}<>]\", \"bW\")<CR>")
-vim.keymap.set('v', 'f<leader>', "omao<c-c>:call search(\"[][\\\"'(){}<>]\", \"W\")<CR>mb`av`b")
-vim.keymap.set('v', 'F<leader>', "omao<c-c>:call search(\"[][\\\"'(){}<>]\", \"bW\")<CR>mb`av`b")
 
 vim.opt.clipboard = "unnamedplus"
 
@@ -77,3 +97,7 @@ vim.keymap.set("n", "<leader>pd", ":belowright 15split | terminal html_preview_d
 
 -- shuffle playlist
 vim.keymap.set("n", "<leader>sh", ":%!shuf<CR>")
+
+
+-- fold code and toggle with za
+-- vim.keymap.set("n", "zf", "zfa{")

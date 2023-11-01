@@ -29,3 +29,4 @@ vim.g.mapleader = " "
 -- ignoring uppercase in search 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
