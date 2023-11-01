@@ -41,6 +41,9 @@ mkdir -p ~/pics/wallpaper
 mkdir -p ~/videos
 cp -r ./wallpaper/my_wallpaper.jpg ~/pics/wallpaper/
 
+# for neovim sessions
+mkdir -p ~/dev/sessions
+
 # foot
 echo "----------------------------------------------------------------------------foot----------------------------------------------------------------------------"
 sudo rm -rf ~/.config/foot
