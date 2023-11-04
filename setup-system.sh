@@ -292,4 +292,10 @@ mv ./qrcp ~/.local/bin/
 cd ..
 sudo rm -rf ./qrcp
 
-echo "logout or reboot system to start xdg-desktop-portal-hyprland"
+echo "----------------------------------------------------------------------------latex packages----------------------------------------------------------------------------"
+sudo apt install --no-install-recommends -y texlive-base texlive-lang-german texlive-latex-extra texlive-science texlive-extra-utils
+
+echo "----------------------------------------------------------------------------installing some utilities----------------------------------------------------------------------------"
+sudo apt install --no-install-recommends -y calc translate-shell tldr ghostscript tesseract-ocr tesseract-ocr-deu libsixel-bin
+
+echo "logout or reboot system"
