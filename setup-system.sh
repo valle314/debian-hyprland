@@ -183,7 +183,7 @@ cp -r dots/waybar ~/.config/
 # yt-dlp
 echo "----------------------------------------------------------------------------yt-dlp----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y ffmpeg 
-git clone https://github.com/yt-dlp/yt-dlp --branch 2023.07.06 --single-branch 
+git clone https://github.com/yt-dlp/yt-dlp --branch 2023.10.13 --single-branch --depth 1
 cd ./yt-dlp
 make yt-dlp
 mv ./yt-dlp ~/.local/bin/yt-dlp
