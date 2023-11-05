@@ -210,6 +210,7 @@ echo "--------------------------------------------------------------------------
 sudo apt install --no-install-recommends taskwarrior
 sudo rm -rf ~/.config/task
 mkdir -p ~/.local/share/task/.task
+cp -r dots/task ~/.config/
 
 # vit
 echo "----------------------------------------------------------------------------vit----------------------------------------------------------------------------"

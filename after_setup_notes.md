@@ -1,5 +1,5 @@
 * install NotoSans Nerd font and run: install-nerd-font.sh YOUR_NERD_FONT.zip
-* firefox: ublock, gruvbox theme, Vimium-FF
+* firefox: ublock, gruvbox theme, Vimium-FF, set dark mode in settings
 * copy your .task file to /.local/share/task/
 * copy over your .when file to ~/
 * copy dev, docs, templates, scripts, music, videos, pics, notes, videos
