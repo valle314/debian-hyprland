@@ -1,0 +1,18 @@
+# Save all videos here
+# --paths $HOME/music
+
+--output %(artist)s-%(title)s.%(ext)s
+# --output %(title)s.%(ext)s
+
+# --output %(playlist_index)s-%(artist)s-%(title)s.%(ext)s
+
+
+
+# Restrict filenames to only ASCII characters, and avoid "&" and spaces in filenames
+# --restrict-filenames
+
+# Do not overwrite existing output files
+--no-overwrites
+
+# Download only the video, if the URL refers to a video AND a playlist
+# --no-playlist

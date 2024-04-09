@@ -1,0 +1,6 @@
+[user]
+	email = my@email.com
+	name = my_name
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3

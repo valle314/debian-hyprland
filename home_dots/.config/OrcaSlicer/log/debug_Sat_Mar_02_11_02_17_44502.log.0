@@ -1,0 +1,4 @@
+2024-03-02 11:02:17.787487[Thread 0x00007fe3d37bad00]:gui mode, Current OrcaSlicer Version 2.0.0-dev
+2024-03-02 11:02:27.647780[Thread 0x00007fe3d37bad00]:~GUI_App: enter
+2024-03-02 11:02:27.647814[Thread 0x00007fe3d37bad00]:~GUI_App: destroy app_config
+2024-03-02 11:02:27.647835[Thread 0x00007fe3d37bad00]:~GUI_App: exit

@@ -8,7 +8,7 @@ sudo apt install --no-install-recommends -y imagemagick
 scripts/change-default-hyprland-backgrounds.sh
 
 sudo rm -rf ~/.config/mimeapps.list
-cp -r dots/mimeapps.list ~/.config/
+cp -r home_dots/.config/mimeapps.list ~/.config/
 
 sudo rm -rf ~/.config/user-dirs.dirs
 sudo rm -rf ~/.config/user-dirs.locale
@@ -44,17 +44,10 @@ cp -r ./wallpaper/my_wallpaper.jpg ~/pics/wallpaper/
 # for neovim sessions
 mkdir -p ~/dev/sessions
 
-# foot
-echo "----------------------------------------------------------------------------foot----------------------------------------------------------------------------"
-sudo rm -rf ~/.config/foot
-cp -r dots/foot ~/.config/
-
 # ranger
 echo "----------------------------------------------------------------------------ranger----------------------------------------------------------------------------"
 sudo apt install -y udiskie 
 sudo apt install --no-install-recommends -y fzf unzip zip tar fd-find ranger
-sudo rm -rf ~/.config/ranger
-cp -r dots/ranger ~/.config/
 mkdir -p ~/.local/share/trash
 
 # dragon
@@ -71,55 +64,49 @@ sudo rm -rf ./dragon
 echo "----------------------------------------------------------------------------neovim----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y ripgrep latexmk wl-clipboard python3-pynvim curl
 
-git clone https://github.com/neovim/neovim --branch v0.9.1 --single-branch --depth 1
+git clone https://github.com/neovim/neovim --branch v0.9.5 --single-branch --depth 1
 cd neovim
 make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local
 make install
 cd ..
 sudo rm -rf ./neovim
 
-## dots for neovim  
-echo "----------------------------------------------------------------------------dots for neovim----------------------------------------------------------------------------"
-sudo rm -rf ~/.config/nvim
-cp -r dots/nvim ~/.config/ 
-
 # sioyek
 echo "----------------------------------------------------------------------------sioyek----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y sioyek
-sudo rm -rf ~/.config/sioyek
-cp -r dots/sioyek ~/.config/ 
-
-# bash
-echo "----------------------------------------------------------------------------bash----------------------------------------------------------------------------"
-sudo rm ~/.profile
-sudo rm ~/.bashrc
-sudo rm ~/.bash_profile
-cp dots/bash/.bashrc ~/
-cp dots/bash/.bash_profile ~/
 
 # fuzzel
 echo "----------------------------------------------------------------------------fuzzel----------------------------------------------------------------------------"
 sudo apt install --no-install-recommends -y fuzzel
-sudo rm -rf ~/.config/fuzzel
-cp -r dots/fuzzel ~/.config/
 
 # mpv
 echo "----------------------------------------------------------------------------mpv----------------------------------------------------------------------------"
 sudo apt install -y ffmpeg libavfilter-dev libass-dev libmpv-dev
-git clone https://github.com/mpv-player/mpv --branch v0.36.0 --single-branch 
+git clone https://github.com/mpv-player/mpv --branch v0.37.0 --single-branch --depth 1
 cd ./mpv
-meson setup build
+mkdir -p subprojects
+git clone https://code.videolan.org/videolan/libplacebo --branch v6.338 --single-branch --depth 1 --recursive subprojects/libplacebo
+meson setup build --default-library=static
 meson compile -C build
 cp ./build/mpv ~/.local/bin
 cd ..
 
-sudo rm -rf ./mpv 
-sudo rm -rf ~/.config/mpv
-cp -r dots/mpv ~/.config/
-
 sudo rm -rf ~/.local/share/applications/mpv.desktop 
 mkdir -p ~/.local/share/applications/
-cp -r dots/mpv.desktop ~/.local/share/applications/
+touch ~/.local/share/applications/mpv.desktop
+cat <<EOT >> ~/.local/share/applications/mpv.desktop
+[Desktop Entry]
+Type=Application
+Name=mpv Media Player
+Exec=mpv --player-operation-mode=pseudo-gui -- %U
+Terminal=false
+Categories=AudioVideo;Audio;Video;Player;TV;
+MimeType=application/ogg;application/x-ogg;application/mxf;application/sdp;application/smil;application/x-smil;application/streamingmedia;application/x-streamingmedia;application/vnd.rn-realmedia;application/vnd.rn-realmedia-vbr;audio/aac;audio/x-aac;audio/vnd.dolby.heaac.1;audio/vnd.dolby.heaac.2;audio/aiff;audio/x-aiff;audio/m4a;audio/x-m4a;application/x-extension-m4a;audio/mp1;audio/x-mp1;audio/mp2;audio/x-mp2;audio/mp3;audio/x-mp3;audio/mpeg;audio/mpeg2;audio/mpeg3;audio/mpegurl;audio/x-mpegurl;audio/mpg;audio/x-mpg;audio/rn-mpeg;audio/musepack;audio/x-musepack;audio/ogg;audio/scpls;audio/x-scpls;audio/vnd.rn-realaudio;audio/wav;audio/x-pn-wav;audio/x-pn-windows-pcm;audio/x-realaudio;audio/x-pn-realaudio;audio/x-ms-wma;audio/x-pls;audio/x-wav;video/mpeg;video/x-mpeg2;video/x-mpeg3;video/mp4v-es;video/x-m4v;video/mp4;application/x-extension-mp4;video/divx;video/vnd.divx;video/msvideo;video/x-msvideo;video/ogg;video/quicktime;video/vnd.rn-realvideo;video/x-ms-afs;video/x-ms-asf;audio/x-ms-asf;application/vnd.ms-asf;video/x-ms-wmv;video/x-ms-wmx;video/x-ms-wvxvideo;video/x-avi;video/avi;video/x-flic;video/fli;video/x-flc;video/flv;video/x-flv;video/x-theora;video/x-theora+ogg;video/x-matroska;video/mkv;audio/x-matroska;application/x-matroska;video/webm;audio/webm;audio/vorbis;audio/x-vorbis;audio/x-vorbis+ogg;video/x-ogm;video/x-ogm+ogg;application/x-ogm;application/x-ogm-audio;application/x-ogm-video;application/x-shorten;audio/x-shorten;audio/x-ape;audio/x-wavpack;audio/x-tta;audio/AMR;audio/ac3;audio/eac3;audio/amr-wb;video/mp2t;audio/flac;audio/mp4;application/x-mpegurl;video/vnd.mpegurl;application/vnd.apple.mpegurl;audio/x-pn-au;video/3gp;video/3gpp;video/3gpp2;audio/3gpp;audio/3gpp2;video/dv;audio/dv;audio/opus;audio/vnd.dts;audio/vnd.dts.hd;audio/x-adpcm;application/x-cue;audio/m3u;
+StartupWMClass=mpv
+EOT
+
+sudo rm -rf ./mpv
+
 
 # grim, slurp, swappy for screenshots
 echo "----------------------------------------------------------------------------grim, slurp, swappy for screenshots----------------------------------------------------------------------------"
@@ -132,9 +119,6 @@ sudo rm ~/.local/bin/swappy
 cp ./build/swappy ~/.local/bin/
 cd ..
 sudo rm -rf ./swappy
-
-sudo rm -rf ~/.config/swappy
-cp -r dots/swappy ~/.config/
 
 sudo apt install --no-install-recommends -y grim slurp
 
@@ -160,25 +144,27 @@ sudo rm -rf ./hyprpicker
 
 # swayimg
 echo "----------------------------------------------------------------------------swayimg(config)----------------------------------------------------------------------------"
-sudo rm -rf ~/.config/swayimg
-cp -r dots/swayimg ~/.config/
+sudo apt install --no-install-recommends -y libjson-c-dev
+
+git clone https://github.com/artemsen/swayimg --branch v2.2 --single-branch --depth 1
+cd ./swayimg
+meson setup build --default-library=static --buildtype=release 
+meson compile -C build
+cp ./build/swayimg ~/.local/bin
+cd ..
+
+sudo rm -rf ./swayimg
 
 # waybar
 echo "----------------------------------------------------------------------------waybar(ERROR EXPECTED at the end because non root install)----------------------------------------------------------------------------"
-sudo apt install --no-install-recommends -y clang-tidy gobject-introspection libdbusmenu-gtk3-dev libevdev-dev libfmt-dev libgirepository1.0-dev libgtk-3-dev libgtkmm-3.0-dev libinput-dev libjsoncpp-dev libmpdclient-dev libnl-3-dev libnl-genl-3-dev libpulse-dev libsigc++-2.0-dev libspdlog-dev libwayland-dev scdoc upower libxkbregistry-dev libupower-glib-dev libwireplumber-0.4-dev libsndio-dev libgtk-layer-shell-dev libplayerctl-dev libjack-dev libhdate-dev
-git clone https://github.com/Alexays/Waybar --branch 0.9.20 --single-branch
-sudo rm -rf ./Waybar/meson.build
-cp ./waybarfix/meson.build ./Waybar/
+# sudo apt install --no-install-recommends -y clang-tidy gobject-introspection libdbusmenu-gtk3-dev libevdev-dev libfmt-dev libgirepository1.0-dev libgtk-3-dev libgtkmm-3.0-dev libinput-dev libjsoncpp-dev libmpdclient-dev libnl-3-dev libnl-genl-3-dev libpulse-dev libsigc++-2.0-dev libspdlog-dev libwayland-dev scdoc upower libxkbregistry-dev libupower-glib-dev libwireplumber-0.4-dev libsndio-dev libgtk-layer-shell-dev libplayerctl-dev libjack-dev libhdate-dev
+git clone https://github.com/Alexays/Waybar --branch 0.10.0 --single-branch --recursive --depth 1
 cd Waybar
-sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
-meson --prefix=~/.local --buildtype=plain --auto-features=enabled build
-meson configure -Dexperimental=true build
-ninja -C build install
+meson setup build --default-library=static --buildtype=release -Dexperimental=true
+meson compile -C build
+cp ./build/waybar ~/.local/bin
 cd ..
 sudo rm -rf ./Waybar
-
-sudo rm -rf ~/.config/waybar
-cp -r dots/waybar ~/.config/
 
 # yt-dlp
 echo "----------------------------------------------------------------------------yt-dlp----------------------------------------------------------------------------"
