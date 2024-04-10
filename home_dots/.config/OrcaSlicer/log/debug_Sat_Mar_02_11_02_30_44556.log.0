@@ -1,0 +1,67 @@
+2024-03-02 11:02:30.293939[Thread 0x00007fd5a5393d00]:gui mode, Current OrcaSlicer Version 2.0.0-dev
+2024-03-02 11:02:40.691489[Thread 0x00007fd5a5393d00]:load_language: language , initial: 1
+2024-03-02 11:02:40.691558[Thread 0x00007fd5a5393d00]:System language detected (user locales and such): en_US
+2024-03-02 11:02:40.712154[Thread 0x00007fd5a5393d00]:Failed to load to hints.cereal. File does not exists. /home/valentin/.config/OrcaSlicer/user/hints.cereal
+2024-03-02 11:02:40.712835[Thread 0x00007fd5a5393d00]:Update_dark_mode_flag: switch the current dark mode status to 0 
+2024-03-02 11:02:40.715663[Thread 0x00007fd5a5393d00]:begin to show the splash screen...
+2024-03-02 11:02:40.740065[Thread 0x00007fd5a5393d00]:loading systen presets...
+2024-03-02 11:02:40.746183[Thread 0x00007fd5a5393d00]:[Orca Updater]:Checking whether the profile from resource is newer
+2024-03-02 11:02:40.746829[Thread 0x00007fd5a5393d00]:Installing 1 bundles from resources ...
+2024-03-02 11:02:40.746940[Thread 0x00007fd5a5393d00]:[Orca Updater]:Performing 2 updates
+2024-03-02 11:02:40.746955[Thread 0x00007fd5a5393d00]:	Update(/tmp/.mount_OrcaSlpnr0te/resources/profiles/Custom.json -> /home/valentin/.config/OrcaSlicer/system/Custom.json)
+2024-03-02 11:02:40.750985[Thread 0x00007fd5a5393d00]:	Update(/tmp/.mount_OrcaSlpnr0te/resources/profiles/Custom -> /home/valentin/.config/OrcaSlicer/system/Custom)
+2024-03-02 11:02:40.751002[Thread 0x00007fd5a5393d00]:copy_directory_recursively "/tmp/.mount_OrcaSlpnr0te/resources/profiles/Custom" -> "/home/valentin/.config/OrcaSlicer/system/Custom"
+2024-03-02 11:02:40.751306[Thread 0x00007fd5a5393d00]:copy_directory_recursively "/tmp/.mount_OrcaSlpnr0te/resources/profiles/Custom/filament" -> "/home/valentin/.config/OrcaSlicer/system/Custom/filament"
+2024-03-02 11:02:40.805197[Thread 0x00007fd5a5393d00]:copy_directory_recursively "/tmp/.mount_OrcaSlpnr0te/resources/profiles/Custom/machine" -> "/home/valentin/.config/OrcaSlicer/system/Custom/machine"
+2024-03-02 11:02:40.822795[Thread 0x00007fd5a5393d00]:copy_directory_recursively "/tmp/.mount_OrcaSlpnr0te/resources/profiles/Custom/process" -> "/home/valentin/.config/OrcaSlicer/system/Custom/process"
+2024-03-02 11:02:40.911299[Thread 0x00007fd5a5393d00]:[Orca Updater]:Performing 1 updates
+2024-03-02 11:02:40.911329[Thread 0x00007fd5a5393d00]:	Update(/tmp/.mount_OrcaSlpnr0te/resources/printers -> /home/valentin/.config/OrcaSlicer/printers)
+2024-03-02 11:02:40.911336[Thread 0x00007fd5a5393d00]:copy_directory_recursively "/tmp/.mount_OrcaSlpnr0te/resources/printers" -> "/home/valentin/.config/OrcaSlicer/printers"
+2024-03-02 11:02:40.946456[Thread 0x00007fd5a5393d00]:initialize_network_module, error, dlerror is /home/valentin/.config/OrcaSlicer/plugins/libbambu_networking.so: cannot open shared object file: No such file or directory
+2024-03-02 11:02:40.946488[Thread 0x00007fd5a5393d00]:initialize_network_module, can not Load Library for /home/valentin/.config/OrcaSlicer/plugins/libbambu_networking.so
+2024-03-02 11:02:40.946497[Thread 0x00007fd5a5393d00]:on_init_network: on_init_network, load dll failed
+2024-03-02 11:02:40.946519[Thread 0x00007fd5a5393d00]:unload_network_module, network module 0
+2024-03-02 11:02:40.946528[Thread 0x00007fd5a5393d00]:on_init_network, unload_network_module, result = 0
+2024-03-02 11:02:40.946535[Thread 0x00007fd5a5393d00]:preset_folder: set to empty
+2024-03-02 11:02:40.946764[Thread 0x00007fd5a5393d00]:load_presets enter, substitution_rule 3, preferred printer_model_id 
+2024-03-02 11:02:40.946834[Thread 0x00007fd5a5393d00]:load_vendor_configs_from_json enter, path /home/valentin/.config/OrcaSlicer/system, compatibility_rule 2
+2024-03-02 11:02:40.947065[Thread 0x00007fd5a5393d00]:load_vendor_configs_from_json: parse /home/valentin/.config/OrcaSlicer/system/Custom.json, got description:  "My configurations"
+2024-03-02 11:02:40.952395[Thread 0x00007fd5a5393d00]:operator() 35100.08mm Extra Fine @MyKlipper load filament_id: 
+2024-03-02 11:02:40.952897[Thread 0x00007fd5a5393d00]:operator() 35100.12mm Fine @MyKlipper load filament_id: 
+2024-03-02 11:02:40.953372[Thread 0x00007fd5a5393d00]:operator() 35100.15mm Optimal @MyKlipper load filament_id: 
+2024-03-02 11:02:40.953839[Thread 0x00007fd5a5393d00]:operator() 35100.20mm Standard @MyKlipper load filament_id: 
+2024-03-02 11:02:40.954320[Thread 0x00007fd5a5393d00]:operator() 35100.24mm Draft @MyKlipper load filament_id: 
+2024-03-02 11:02:40.954797[Thread 0x00007fd5a5393d00]:operator() 35100.28mm Extra Draft @MyKlipper load filament_id: 
+2024-03-02 11:02:40.955263[Thread 0x00007fd5a5393d00]:operator() 35100.08mm Extra Fine @MyMarlin load filament_id: 
+2024-03-02 11:02:40.955737[Thread 0x00007fd5a5393d00]:operator() 35100.12mm Fine @MyMarlin load filament_id: 
+2024-03-02 11:02:40.956192[Thread 0x00007fd5a5393d00]:operator() 35100.15mm Optimal @MyMarlin load filament_id: 
+2024-03-02 11:02:40.956660[Thread 0x00007fd5a5393d00]:operator() 35100.20mm Standard @MyMarlin load filament_id: 
+2024-03-02 11:02:40.957121[Thread 0x00007fd5a5393d00]:operator() 35100.24mm Draft @MyMarlin load filament_id: 
+2024-03-02 11:02:40.957594[Thread 0x00007fd5a5393d00]:operator() 35100.28mm Extra Draft @MyMarlin load filament_id: 
+2024-03-02 11:02:40.962674[Thread 0x00007fd5a5393d00]:operator() 3510My Generic PLA load filament_id: GFL99
+2024-03-02 11:02:40.962980[Thread 0x00007fd5a5393d00]:operator() 3510My Generic PLA-CF load filament_id: GFL98
+2024-03-02 11:02:40.963379[Thread 0x00007fd5a5393d00]:operator() 3510My Generic PETG load filament_id: GFG99
+2024-03-02 11:02:40.963663[Thread 0x00007fd5a5393d00]:operator() 3510My Generic ABS load filament_id: GFB99
+2024-03-02 11:02:40.963926[Thread 0x00007fd5a5393d00]:operator() 3510My Generic TPU load filament_id: GFU99
+2024-03-02 11:02:40.964198[Thread 0x00007fd5a5393d00]:operator() 3510My Generic ASA load filament_id: GFB98
+2024-03-02 11:02:40.964471[Thread 0x00007fd5a5393d00]:operator() 3510My Generic PC load filament_id: GFC99
+2024-03-02 11:02:40.964769[Thread 0x00007fd5a5393d00]:operator() 3510My Generic PVA load filament_id: GFS99
+2024-03-02 11:02:40.965052[Thread 0x00007fd5a5393d00]:operator() 3510My Generic PA load filament_id: GFN99
+2024-03-02 11:02:40.965344[Thread 0x00007fd5a5393d00]:operator() 3510My Generic PA-CF load filament_id: GFN98
+2024-03-02 11:02:40.967437[Thread 0x00007fd5a5393d00]:operator() 3510MyKlipper 0.4 nozzle load filament_id: 
+2024-03-02 11:02:40.967853[Thread 0x00007fd5a5393d00]:operator() 3510MyMarlin 0.4 nozzle load filament_id: 
+2024-03-02 11:02:40.968014[Thread 0x00007fd5a5393d00]:load_user_presets545 entry and user is: default
+2024-03-02 11:02:40.968055[Thread 0x00007fd5a5393d00]:load_presets enter, load presets from "/home/valentin/.config/OrcaSlicer/user/default/process", current type process
+2024-03-02 11:02:40.968169[Thread 0x00007fd5a5393d00]:load_presets enter, load presets from "/home/valentin/.config/OrcaSlicer/user/default/filament", current type filament
+2024-03-02 11:02:40.968220[Thread 0x00007fd5a5393d00]:load_presets enter, load presets from "/home/valentin/.config/OrcaSlicer/user/default/machine", current type machine
+2024-03-02 11:02:40.968261[Thread 0x00007fd5a5393d00]:update_compatibility for all presets enter
+2024-03-02 11:02:40.968282[Thread 0x00007fd5a5393d00]:update_compatibility for all presets exit
+2024-03-02 11:02:40.968290[Thread 0x00007fd5a5393d00]:update_compatibility for all presets enter
+2024-03-02 11:02:40.968300[Thread 0x00007fd5a5393d00]:update_compatibility for all presets exit
+2024-03-02 11:02:40.971503[Thread 0x00007fd5a5393d00]:update_compatibility for all presets enter
+2024-03-02 11:02:40.971938[Thread 0x00007fd5a5393d00]:update_compatibility for all presets exit
+2024-03-02 11:02:40.971947[Thread 0x00007fd5a5393d00]:load_presets finished, returned substitutions 0
+2024-03-02 11:02:40.971957[Thread 0x00007fd5a5393d00]:create the main window
+2024-03-02 11:02:45.778149[Thread 0x00007fd5a5393d00]:select_technology: change the printer technology from 2 to 0
+2024-03-02 11:02:45.813990[Thread 0x00007fd5a5393d00]:get_current_slice_result:m_current_plate 0, current_plate 0x5570a6e4d470
+2024-03-02 11:02:45.829372[Thread 0x00007fd5a5393d00]:set_current_panel: current_panel 0, new_panel 0x5570a69f53b0

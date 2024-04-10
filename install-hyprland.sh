@@ -7,10 +7,7 @@ echo "building hyprland"
 git clone --recursive https://github.com/hyprwm/Hyprland --branch v0.28.0 --single-branch
 
 sudo rm -rf ~/.config/hypr
-mkdir -p  ~/.config/hypr
-
-cp -r hypr/hyprland.conf ~/.config/hypr/
-cp -r hypr/hyprpaper.conf ~/.config/hypr/
+yes | cp -ir ./home_dots/.config/hypr ~/.config
 
 # wlroots patch for nvidia and screen sharing
 sed -i 's/glFlush();/glFinish();/g' Hyprland/subprojects/wlroots/render/gles2/renderer.c

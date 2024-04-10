@@ -32,9 +32,9 @@ cd ./libnvidia-egl-wayland1-backports
 sudo apt install ./*.deb
 cd ..
 
-../scripts/backports-build.sh swayimg
-cd ./swayimg-backports
-../../scripts/backports-remove-dbg.sh
-sudo apt install ./*.deb
-cd ..
+# ../scripts/backports-build.sh swayimg
+# cd ./swayimg-backports
+# ../../scripts/backports-remove-dbg.sh
+# sudo apt install ./*.deb
+# cd ..
 

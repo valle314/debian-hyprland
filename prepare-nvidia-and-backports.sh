@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo rm /etc/apt/sources.list
-sudo cp -r dots/sources.list /etc/apt/
+sudo cp -r ./sources.list /etc/apt/
 sudo apt update
 sudo apt upgrade
 sudo apt install nvidia-driver
